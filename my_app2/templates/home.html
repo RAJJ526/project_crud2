@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="{% static  's.css' %}">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>Brand</td>
+                <td>Model</td>
+                <td>Year</td>
+                <td>Price</td>
+                <td>Delete</td>
+                <td>Update</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in obj %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.brand_name}}</td>
+                <td>{{i.model}}</td>
+                <td>{{i.year}}</td>
+                <td>{{i.price}}</td>
+                <td><a href="/home/delete/{{i.id}}">delete</a> </td>
+                <td><a href="/home/change/{{i.id}}">update</a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/home/new">add new data</a>
+</body>
+</html>
